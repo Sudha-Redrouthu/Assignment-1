@@ -28,10 +28,10 @@ namespace PetApp
                     Console.WriteLine("Invalid choice. Please choose 1, 2, or 3.");
                     return;
             }
-                    Console.WriteLine($"You’ve chosen a {petType}. What would you like to name your pet?");
-                    string petName = Console.ReadLine();
+            Console.WriteLine($"You’ve chosen a {petType}. What would you like to name your pet?");
+            string petName = Console.ReadLine();
 
-                    Console.WriteLine($"Welcome, {petName}! Let’s take good care of him.");
+            Console.WriteLine($"Welcome, {petName}! Let’s take good care of him.");
         }
     }
 }
