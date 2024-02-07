@@ -52,15 +52,15 @@ namespace PetApp
                 {
                     case "1":
                         buddy.Feed();
-                        Console.WriteLine($"{buddy.Name} has been fed.");
+                        Console.WriteLine($"{buddy.Name} has been fed. His Hunger decreases, and health improves slightly");
                         break;
                     case "2":
                         buddy.Play();
-                        Console.WriteLine($"You played with {buddy.Name}.");
+                        Console.WriteLine($"You played with {buddy.Name}. His happiness increases, but he's a bit hunger");
                         break;
                     case "3":
                         buddy.Rest();
-                        Console.WriteLine($"{buddy.Name} is resting.");
+                        Console.WriteLine($"{buddy.Name} is resting.his Hppiness and Health increases");
                         break;
                     case "4":
                         Console.WriteLine(buddy.GetStatus());
@@ -95,20 +95,20 @@ public class Pet
 
     public void Feed()
     {
-        Hunger++;
+        Hunger--;
         Health++;
     }
 
     public void Play()
     {
         Happiness++;
-        Hunger--;
+        Hunger++;
     }
 
     public void Rest()
     {
         Health++;
-        Happiness--;
+        Happiness++;
     }
 
     public string GetStatus()
