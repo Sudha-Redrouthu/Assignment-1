@@ -32,6 +32,87 @@ namespace PetApp
             string petName = Console.ReadLine();
 
             Console.WriteLine($"Welcome, {petName}! Let’s take good care of him.");
+            Pet buddy  = new Pet(petName);
+            string userInput;
+
+            do
+            {
+                Console.WriteLine("\nMain Menu:");
+                Console.WriteLine($"1. Feed {petName}");
+                Console.WriteLine($"2. Play with {petName}");
+                Console.WriteLine($"3. Let {petName} rest");
+                Console.WriteLine($"4. Check {petName}'s status");
+                Console.WriteLine("5. Exit");
+                Console.Write("User Input: ");
+
+
+                userInput = Console.ReadLine();
+
+                switch (userInput)
+                {
+                    case "1":
+                        buddy.Feed();
+                        Console.WriteLine($"{buddy.Name} has been fed.");
+                        break;
+                    case "2":
+                        buddy.Play();
+                        Console.WriteLine($"You played with {buddy.Name}.");
+                        break;
+                    case "3":
+                        buddy.Rest();
+                        Console.WriteLine($"{buddy.Name} is resting.");
+                        break;
+                    case "4":
+                        Console.WriteLine(buddy.GetStatus());
+                        break;
+                    case "5":
+                        Console.WriteLine($"Thank You for playing with {buddy.Name}...Exiting");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice. Please choose a number between 1 and 5.");
+                        break;
+                }
+            }
+            while (userInput != "5");
         }
+    }
+}
+
+public class Pet
+{
+    public string Name { get; set; }
+    public int Hunger { get; private set; }
+    public int Happiness { get; private set; }
+    public int Health { get; private set; }
+
+    public Pet(string name)
+    {
+        Name = name;
+        Hunger = 10;
+        Happiness = 10;
+        Health = 10;
+    }
+
+    public void Feed()
+    {
+        Hunger++;
+        Health++;
+    }
+
+    public void Play()
+    {
+        Happiness++;
+        Hunger--;
+    }
+
+    public void Rest()
+    {
+        Health++;
+        Happiness--;
+    }
+
+    public string GetStatus()
+    {
+        return $"{Name}'s status:\n- Hunger: {Hunger}\n- Happiness: {Happiness}\n- Health: {Health}";
     }
 }
